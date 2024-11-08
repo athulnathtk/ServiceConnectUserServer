@@ -28,7 +28,6 @@ exports.signup = async (req, res) => {
     const otp = new OTP({
       userId: user._id,
       otp: otpCode,
-      otpCreatedAt: Date.now(),
       otpExpires: Date.now() + 10 * 60 * 1000, // OTP expires in 10 minutes
     });
     await otp.save();
