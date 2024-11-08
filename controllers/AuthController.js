@@ -33,7 +33,6 @@ exports.signup = async (req, res) => {
     await otp.save();
 
     await sendOTP(email, otpCode); // Logs the OTP to the console
-    console.log(email,otpCode);
     res.status(200).json({ message: 'Signup successful. Please verify your email with the OTP sent.' });
   } catch (error) {
     res.status(500).json({ message: error.message });
