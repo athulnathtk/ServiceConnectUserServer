@@ -1,4 +1,4 @@
-const User = require('../models/Otp');
+const User = require('../models/User');
 const OTP = require('../models/Otp');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
@@ -35,6 +35,7 @@ exports.signup = async (req, res) => {
     await sendOTP(email, otpCode); // Logs the OTP to the console
     res.status(200).json({ message: 'Signup successful. Please verify your email with the OTP sent.' });
   } catch (error) {
+    console.log('error msg',error.message);
     res.status(500).json({ message: error.message });
   }
 };
